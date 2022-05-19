@@ -1,23 +1,24 @@
 let didScroll = false;
 window.onscroll = () => didScroll = true;
 const [wght, XOPQ, YOPQ, YTLC, YTUC] = [200, 175, 135, 416, 760]
-const [wght2, XOPQ2, YOPQ2, YTLC2, YTUC2] = [400, 101, 80, 712, 750]
+const [wght2, XOPQ2, YOPQ2, YTLC2, YTUC2] = [500, 101, 80, 712, 750]
 const p = document.querySelector('p');
-const h3list = document.querySelectorAll('h3');
-for (let i = 0; i < h3list.length; i++) {
+// const h3list = document.querySelectorAll('h3');
+// for (let i = 0; i < h3list.length; i++) {
     setInterval(() => {
-        const h3 = h3list.item(i);
+        // const h3 = h3list.item(i);
         if (didScroll) {
-            // p.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
-            h3.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
+            p.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
+            // h3.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
+            console.log('scrolling');
             didScroll = false;
         } else {
-            // p.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
-            h3.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
+            p.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
+            // h3.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
         }
-    }, 200);
+    }, 500);
     console.log(didScroll);
-}
+// }
 
 const ambientLightIds = { vendorId: 0x05ac, };
 

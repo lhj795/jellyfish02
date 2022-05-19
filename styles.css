@@ -27,10 +27,12 @@ h3 {
 
 p {
     font-family: RobotoFlex;
-    font-variation-settings: "wght" 400, "XOPQ" 101, "YOPQ" 80, "YTLC" 712, "YTUC" 750;
     font-style: normal;
-    font-size: 12px;
+    font-size: 16px;
     transition: 1s;
+    line-height: 2;
+    margin: 0;
+    height: fit-content;
 }
 
 .header {
@@ -55,6 +57,14 @@ p {
 
 body {
     margin: 0;
+    padding: 2vw;
+    max-width: 100vw;
+}
+
+.container {
+    min-height: 300vh;
+    max-height: 300vh;
+    overflow: hidden;
 }
 
 .navBar {
@@ -104,6 +114,7 @@ body {
     text-align: center;
     font-size: 1.5rem;
     border-radius: 1em;
+    opacity: 0;
 }
 
 #request-hid-device {
