@@ -2,23 +2,18 @@ let didScroll = false;
 window.onscroll = () => didScroll = true;
 const [wght, XOPQ, YOPQ, YTLC, YTUC] = [200, 175, 135, 416, 760]
 const [wght2, XOPQ2, YOPQ2, YTLC2, YTUC2] = [500, 101, 80, 712, 750]
-const p = document.querySelector('p');
-// const h3list = document.querySelectorAll('h3');
-// for (let i = 0; i < h3list.length; i++) {
-    setInterval(() => {
-        // const h3 = h3list.item(i);
-        if (didScroll) {
-            p.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
-            // h3.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
-            console.log('scrolling');
-            didScroll = false;
-        } else {
-            p.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
-            // h3.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
-        }
-    }, 500);
-    console.log(didScroll);
-// }
+const textElem = document.getElementById("textElem");
+const videoElem = document.getElementById("video");
+setInterval(() => {
+    if (didScroll) {
+        textElem.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
+        console.log('scrolling');
+        didScroll = false;
+    } else {
+        textElem.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
+    }
+}, 500);
+console.log(didScroll);
 
 const ambientLightIds = { vendorId: 0x05ac, };
 
@@ -85,19 +80,17 @@ async function initDevice(device) {
 
         function parseAndDisplayData(view) {
             const flag = view.getUint8();
-            const v1 = view.getUint32(1, true) * 10 ** -2; // Light - no idea what value, Exponent is from HidReport
-            const v2 = view.getUint32(5, true); // This is reported as Temperatur, no idea
-            const v3 = view.getUint32(9, true); // No idea
-            const v4 = view.getUint32(13, true); // No idea
+            const v1 = view.getUint32(1, true) * 10 ** -2; // Light
             $output.innerHTML = numberFormat.format(v1);
             console.log(v1);
-            if (v1 > 6000) {
-                document.body.style.backgroundColor = "#FFFFFF";
-                // document.text.style.opacity = "0";
+            if (v1 > 500) {
+                textElem.style.backgroundColor = "#FFFFFF";
+                textElem.style.color = "rgba(0, 0, 0, .03)";
+                videoElem.style.opacity = "0";
             } else {
-                document.body.style.backgroundColor = "#191A1C";
-                document.body.style.color = "#FFFFFF";
-                document.body.style.opacity = "1";
+                textElem.style.backgroundColor = "#000000";
+                textElem.style.color = "rgba(255, 255, 255, 1)";
+                videoElem.style.opacity = "1";
             }
         }
 
@@ -132,4 +125,10 @@ function showOutput() {
 function showError(errorMessage) {
     $error.innerHTML = errorMessage;
     $error.style.display = "Block";
+}
+
+const video = document.querySelector("video");
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    video.removeAttribute("autoplay");
+    video.pause();
 }

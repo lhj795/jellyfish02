@@ -1,112 +1,27 @@
-* {
-    transition: 1s;
-    /* height: 200vh; */
-}
-
 @font-face {
     font-family: RobotoFlex;
     src: url('./fonts/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf') format('truetype');
 }
 
-h3 {
-    font-family: RobotoFlex;
-    font-variation-settings: "wght" 700;
-    line-height: 1.15;
+body {
+    background: white;
     margin: 0;
-    font-size: 15px;
-    transition: 0.5s;
 }
 
-.h3.scroll {
-    font-family: RobotoFlex;
-    font-variation-settings: "wght" 700, "XOPQ" 96, "YOPQ" 79, "YTLC" 416, "YTUC" 760;
-    line-height: 1.15;
-    margin: 0;
-    font-size: 15px;
-}
-
-p {
+#textElem {
     font-family: RobotoFlex;
     font-style: normal;
-    font-size: 16px;
+    font-size: 20px;
     transition: 1s;
     line-height: 2;
     margin: 0;
     height: fit-content;
-}
-
-.header {
-    width: fit-content;
-    padding: 60px 30px 0 10px;
-}
-
-.header1 {
-    width: 64.28571429vw;
-    height: 75vh;
-    border-right: 1px solid #EFF4FA;
-    border-bottom: 1px solid #EFF4FA;
-    padding: 60px 15px 0 30px;
-}
-
-.topRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-}
-
-body {
-    margin: 0;
-    padding: 2vw;
-    max-width: 100vw;
-}
-
-.container {
-    min-height: 300vh;
-    max-height: 300vh;
-    overflow: hidden;
-}
-
-.navBar {
-    padding: 10px 30px;
-    background-color: #191A1C;
-    position: fixed;
-    width: 100vw;
-    z-index: 1;
-    border-bottom: 1px solid #EFF4FA;
-    top: 0;
-}
-
-.page1 {
-    height: 200vh;
-    width: 100vw;
-}
-
-.intro {
-    width: 21.42857143vw;
-    padding-right: 15px;
-}
-
-.jellies1 {
-    width: 21.42857143vw;
-    height: auto;
-    padding: 0 15px;
-}
-
-.jellies1Container {
-    padding-top: 30px;
-    padding-left: 14.28571429vw;
-}
-
-.video {
+    mix-blend-mode: multiply;
+    color: white;
+    background-color: black;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 28.57142857vw;
-}
-
-.subtitle {
-    margin-top: -1.5em;
+    padding: 10px 20px;
+    top: 0;
 }
 
 #ambient-light-value {
@@ -114,16 +29,25 @@ body {
     text-align: center;
     font-size: 1.5rem;
     border-radius: 1em;
-    opacity: 0;
+    opacity: 0 !important;
 }
 
 #request-hid-device {
-    display: none;
     margin: 0 auto;
+    position: absolute;
 }
 
 #error {
     display: none;
     text-align: center;
     color: red;
+}
+
+video {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    object-fit: fill;
+    top: 0;
 }
