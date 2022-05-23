@@ -1,3 +1,11 @@
+// cursor
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", (e) => {
+    cursor.style.top = e.pageY + "px";
+    cursor.style.left = e.pageX + "px";
+});
+
+// scroll effect
 let didScroll = false;
 window.onscroll = () => didScroll = true;
 const [wght, XOPQ, YOPQ, YTLC, YTUC] = [200, 175, 135, 416, 760]
@@ -17,12 +25,11 @@ setInterval(() => {
 }, 500);
 console.log(didScroll);
 
+// ambient light effect
 const ambientLightIds = { vendorId: 0x05ac, };
-
 const numberFormat = new Intl.NumberFormat(undefined, {
     maximumFractionDigits: 2
 });
-
 const $error = document.getElementById("error");
 const $requestButton = document.getElementById("request-hid-device");
 const $output = document.getElementById("ambient-light-value");
@@ -90,11 +97,15 @@ async function initDevice(device) {
                 textElem.style.backgroundColor = "#FFFFFF";
                 textElem.style.color = "rgba(0, 0, 0, .04)";
                 videoElem.style.opacity = "0";
+                cursor.style.mixBlendMode = "color-burn";
+                cursor.style.background = "royalblue";
             } else {
                 document.body.style.backgroundColor = "#000000";
                 textElem.style.backgroundColor = "#000000";
                 textElem.style.color = "rgba(255, 255, 255, 1)";
                 videoElem.style.opacity = "1";
+                cursor.style.mixBlendMode = "color-dodge";
+                cursor.style.background = "royalblue";
             }
         }
 
@@ -131,6 +142,7 @@ function showError(errorMessage) {
     $error.style.display = "Block";
 }
 
+// video player
 const video = document.querySelector("video");
 if (window.matchMedia('(prefers-reduced-motion)').matches) {
     video.removeAttribute("autoplay");
