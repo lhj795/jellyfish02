@@ -86,10 +86,12 @@ async function initDevice(device) {
             $output.innerHTML = numberFormat.format(v1);
             console.log(v1);
             if (v1 > 500) {
+                document.body.style.backgroundColor = "#FFFFFF";
                 textElem.style.backgroundColor = "#FFFFFF";
                 textElem.style.color = "rgba(0, 0, 0, .04)";
                 videoElem.style.opacity = "0";
             } else {
+                document.body.style.backgroundColor = "#000000";
                 textElem.style.backgroundColor = "#000000";
                 textElem.style.color = "rgba(255, 255, 255, 1)";
                 videoElem.style.opacity = "1";
