@@ -4,7 +4,6 @@
 }
 
 body {
-    background: white;
     margin: 0;
 }
 
@@ -17,11 +16,12 @@ body {
     margin: 0;
     height: fit-content;
     mix-blend-mode: multiply;
-    color: white;
-    background-color: black;
+    color: rgba(0, 0, 0, 0.04);
+    background-color: white;
     position: absolute;
     padding: 10px 20px;
     top: 0;
+    line-break: anywhere;
 }
 
 #ambient-light-value {
@@ -50,4 +50,5 @@ video {
     position: fixed;
     object-fit: fill;
     top: 0;
+    opacity: 0;
 }

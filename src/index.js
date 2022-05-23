@@ -7,10 +7,12 @@ const videoElem = document.getElementById("video");
 setInterval(() => {
     if (didScroll) {
         textElem.style.fontVariationSettings = `"wght" ${wght}, "XOPQ" ${XOPQ}, "YOPQ" ${YOPQ}, "YTLC" ${YTLC}, "YTUC" ${YTUC}`;
+        textElem.style.letterSpacing = "-1px";
         console.log('scrolling');
         didScroll = false;
     } else {
         textElem.style.fontVariationSettings = `"wght" ${wght2}, "XOPQ" ${XOPQ2}, "YOPQ" ${YOPQ2}, "YTLC" ${YTLC2}, "YTUC" ${YTUC2}`;
+        textElem.style.letterSpacing = "0px";
     }
 }, 500);
 console.log(didScroll);
@@ -85,7 +87,7 @@ async function initDevice(device) {
             console.log(v1);
             if (v1 > 500) {
                 textElem.style.backgroundColor = "#FFFFFF";
-                textElem.style.color = "rgba(0, 0, 0, .03)";
+                textElem.style.color = "rgba(0, 0, 0, .04)";
                 videoElem.style.opacity = "0";
             } else {
                 textElem.style.backgroundColor = "#000000";
