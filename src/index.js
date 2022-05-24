@@ -83,6 +83,7 @@ function setupButton() {
 // cursor colors
 var colors = ['royalblue', 'lime', 'deeppink'];
 var color = colors[Math.floor(Math.random() * colors.length)];
+cursor.style.background = color;
 
 async function initDevice(device) {
     try {
@@ -102,14 +103,12 @@ async function initDevice(device) {
                 textElem.style.color = "rgba(0, 0, 0, .04)";
                 videoElem.style.opacity = "0";
                 cursor.style.mixBlendMode = "color-burn";
-                cursor.style.background = color;
             } else {
                 document.body.style.backgroundColor = "#000000";
                 textElem.style.backgroundColor = "#000000";
                 textElem.style.color = "rgba(255, 255, 255, 1)";
                 videoElem.style.opacity = "1";
                 cursor.style.mixBlendMode = "color-dodge";
-                cursor.style.background = color;
             }
         }
 
