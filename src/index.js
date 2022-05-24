@@ -81,7 +81,7 @@ function setupButton() {
 }
 
 // cursor colors
-var colors = ['royalblue', 'mediumspringgreen', 'deeppink'];
+var colors = ['royalblue', 'lime', 'deeppink'];
 var color = colors[Math.floor(Math.random() * colors.length)];
 
 async function initDevice(device) {
