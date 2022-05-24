@@ -16,7 +16,7 @@ body {
     margin: 0;
     height: fit-content;
     mix-blend-mode: multiply;
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.05);
     background-color: white;
     position: absolute;
     padding: 10px 20px;
@@ -94,8 +94,8 @@ video {
 
 .cursor {
     position: absolute;
-    background: white;
-    mix-blend-mode: difference;
+    background: royalblue;
+    mix-blend-mode: color-burn;
     width: 20vw;
     height: 20vw;
     top: 0;

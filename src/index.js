@@ -80,6 +80,10 @@ function setupButton() {
     });
 }
 
+// cursor colors
+var colors = ['royalblue', 'mediumspringgreen', 'deeppink'];
+var color = colors[Math.floor(Math.random() * colors.length)];
+
 async function initDevice(device) {
     try {
         hideRequestButton();
@@ -92,20 +96,20 @@ async function initDevice(device) {
             const v1 = view.getUint32(1, true) * 10 ** -2; // Light
             $output.innerHTML = numberFormat.format(v1);
             console.log(v1);
-            if (v1 > 500) {
+            if (v1 > 1000) {
                 document.body.style.backgroundColor = "#FFFFFF";
                 textElem.style.backgroundColor = "#FFFFFF";
                 textElem.style.color = "rgba(0, 0, 0, .04)";
                 videoElem.style.opacity = "0";
                 cursor.style.mixBlendMode = "color-burn";
-                cursor.style.background = "royalblue";
+                cursor.style.background = color;
             } else {
                 document.body.style.backgroundColor = "#000000";
                 textElem.style.backgroundColor = "#000000";
                 textElem.style.color = "rgba(255, 255, 255, 1)";
                 videoElem.style.opacity = "1";
                 cursor.style.mixBlendMode = "color-dodge";
-                cursor.style.background = "royalblue";
+                cursor.style.background = color;
             }
         }
 
